@@ -1,0 +1,85 @@
+<div class="card">
+    <div class="card-header text-white bg-primary mb-3 border-primary mb-4">
+        Custom Framework
+    </div>
+    <div class="card-body">
+        <form>
+            <div class="form-group col-md-4">
+                <h3 class="card-title">Select Instances</h3>
+                <h3 class="framework ">Choose the Framework </h3>
+                <label for="frameworks"></label>
+                <select id="frameworks" name="frameworks" (change)="selected()" class="form-control"
+                    [(ngModel)]="selectedFramework" [ngModelOptions]="{standalone: true}">
+                    <option selected>Choose...</option>
+                    <option *ngFor="let f of frameworks" [ngValue]="f">{{f.name}}</option>
+                </select>
+            </div>
+            <p>Selected Framework is : {{selectedFramework ? selectedFramework.name : 'none'}}</p>
+            <div class="form-group col-md-4">
+                <h3 class="buildTools ">Choose the type of build tool </h3>
+                <label for="btools"></label>
+                <select id="btools" name="btools" class="form-control" [(ngModel)]="selectedTool">
+                    <option selected>Choose...</option>
+                    <option *ngFor="let bt of btools" [ngValue]="bt">{{bt.name}}</option>
+                </select>
+            </div>
+            <p>Selected Tool :{{selectedTool ? selectedTool.name : 'none'}}</p>
+            <div class="form-group col-md-4">
+                <h3 class="buildTools ">Choose the type of Database</h3>
+                <label for="databases"></label>
+                <select id="databases" name="databases" class="form-control" [(ngModel)]="selectedDB">
+                    <option selected>Choose...</option>
+                    <option *ngFor="let db of databases" [ngValue]="db">{{db.name}}</option>
+                </select>
+            </div>
+            <p>Selected DB :{{selectedDB ? selectedDB.name : 'none'}}</p>
+            <div *ngIf="selectedDB">
+                <div>
+                    <label>Enter URL</label>&nbsp;
+                    <input type="text" />
+                </div>
+                <div>
+                    <label>Enter User Name</label>&nbsp;
+                    <input type="text" />
+                </div>
+                <div>
+                    <label>Enter Password</label>&nbsp;
+                    <input type="text" />
+                </div>
+                <div>
+                    <label>Entee Service name</label>&nbsp;
+                    <input type="text" />
+                </div>
+                <button class="btn btn-primary" type="submit">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button class="btn btn-primary" type="reset">Reset</button>
+            </div>
+            <div class="form-group col-md-4">
+                <h3 class="logs ">Choose the Log Dependency </h3>
+                <label for="logs"></label>
+                <select id="logs" name="logs" class="form-control" [(ngModel)]="selectedLog">
+                    <option selected>Choose...</option>
+                    <option *ngFor="let l of logs" [ngValue]="l">{{l.name}}</option>
+                </select>
+            </div>
+            <p>Selected Log Dependency :{{selectedLog ? selectedLog.name : 'none'}}</p>
+            <div class="form-group col-md-4">
+                <h3 class="documentation ">Choose theREST API Documentation</h3>
+                <label for="docs"></label>
+                <select id="docs" name="docs" class="form-control" [(ngModel)]="selectedDoc">
+                    <option selected>Choose...</option>
+                    <option *ngFor="let d of docs" [ngValue]="d">{{d.name}}</option>
+                </select>
+            </div>
+            <p>Selected REST API DOC :{{selectedDoc ? selectedDoc.name : 'none'}}</p>
+            <div class="btn-group">
+                <button type="submit" class="btn btn-success"  aria-haspopup="true"
+                    aria-expanded="false">
+                    Submit
+                </button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="reset" class="btn btn-danger"  aria-haspopup="true"
+                    aria-expanded="false">
+                    Reset
+                </button>
+            </div>
+        </form>
+    </div>
